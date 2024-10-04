@@ -14,18 +14,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Build testining
+      - name: Test Android
         run: |
           cd iosApp
-          xcodebuild \
-            -project iosApp.xcodeproj \
-            -scheme iosApp \
-            -configuration Debug \
-            -allowProvisioningUpdates \
-            -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' \
-            DEVELOPMENT_TEAM=2337TPS94L
-            build
+          fastlane custom_lane
       #     scheme_list=$(xcodebuild -list -json | tr -d "\n")
       #     default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
       #     echo $default | cat >default
