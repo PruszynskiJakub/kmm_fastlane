@@ -16,6 +16,7 @@ jobs:
         with:
           ruby-version: '3.0'
           bundler-cache: true
+          working-directory: 'composeApp'
       - name: Run Android tests
         uses: maierj/fastlane-action@v3.1.0
         with:
