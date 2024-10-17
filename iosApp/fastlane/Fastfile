@@ -18,7 +18,7 @@ default_platform(:ios)
 platform :ios do
   desc "It runs unit tests on iPhone 15 Plus simulator"
   lane :test do
-    reset_simulators()
+#     reset_simulators()
     run_tests(
         project: "iosApp.xcodeproj",
         scheme: "kmm_fastlaneTests",
