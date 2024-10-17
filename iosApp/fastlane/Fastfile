@@ -16,11 +16,17 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
-  lane :custom_lane do
-    # add actions here: https://docs.fastlane.tools/actions
-      run_tests(scheme: "iosApp")
+  desc "It runs unit tests on iPhone 15 Plus simulator"
+  lane :test do
+    reset_simulators()
+    run_tests(
+        project: "iosApp.xcodeproj",
+        scheme: "kmm_fastlaneTests",
+        sdk: "iphonesimulator",
+        devices: ["iPhone 15 Plus"],
+        derived_data_path: "build",
+    )
   end
 end
-
+#  xcodebuild -resolvePackageDependencies -scheme bank_of_loveTests -project iosApp.xcodeproj -derivedDataPath build
 
